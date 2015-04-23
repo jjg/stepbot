@@ -1,6 +1,6 @@
 outer_diameter = 65;
-shaft_round_diameter = 5.5; // .5 over measured
-shaft_flat_diameter = 3.5; // .5 over measured
+shaft_round_diameter = 5.25; // .25 over measured
+shaft_flat_diameter = 3.25; // .25 over measured
 shaft_length = 8;
 tire_width = 12.5;
 
