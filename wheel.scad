@@ -1,6 +1,6 @@
 outer_diameter = 65;
-shaft_round_diameter = 5;
-shaft_flat_diameter = 3;
+shaft_round_diameter = 5.5; // .5 over measured
+shaft_flat_diameter = 3.5; // .5 over measured
 shaft_length = 8;
 tire_width = 12.5;
 
@@ -10,9 +10,9 @@ difference(){
 		cylinder(r=outer_diameter / 2, h= tire_width + 2, $fn=100);
 
 		// rim
-		cylinder(r=(outer_diameter / 2) + 1, h=2, $fn=100);
+		cylinder(r=(outer_diameter / 2) + .5, h=2, $fn=100);
 		translate([0,0,tire_width + 2]){
-			cylinder(r=(outer_diameter / 2) + 1, h=2, $fn=100);
+			cylinder(r=(outer_diameter / 2) + .5, h=2, $fn=100);
 		}
 	}
 

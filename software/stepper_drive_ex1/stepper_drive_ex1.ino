@@ -14,7 +14,7 @@ AccelStepper stepper1(FULLSTEP, motorPin1, motorPin3, motorPin2, motorPin4);
 void setup() {
   stepper1.setMaxSpeed(1000.0);
   stepper1.setAcceleration(100.0);
-  stepper1.setSpeed(1000);
+  stepper1.setSpeed(200); // 200 seems like the max at 9v
   stepper1.moveTo(20000);
 
 }//--(end setup )---
