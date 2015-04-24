@@ -5,6 +5,7 @@ wheel_opening_width = 18;
 motor_diameter = 30;
 motor_flange = 45;
 motor_mount_width = 10;
+motor_shaft_offset = 5;
 
 difference(){
 
@@ -13,7 +14,7 @@ difference(){
 		cylinder(r=deck_diameter / 2,h=deck_thickness);
 
 		// motor mounts
-		translate([-(deck_diameter/4),-motor_flange/2,deck_thickness]){
+		translate([-(deck_diameter/4)+motor_shaft_offset,-motor_flange/2,deck_thickness]){
 			difference(){
 				cube([motor_mount_width,motor_flange,motor_diameter/2]);
 				translate([-1,motor_flange/2,motor_diameter/2]){
@@ -23,7 +24,7 @@ difference(){
 				}
 			}
 		}
-		translate([(deck_diameter/4)-motor_mount_width,-motor_flange/2,deck_thickness]){
+		translate([((deck_diameter/4)-motor_mount_width)-motor_shaft_offset,-motor_flange/2,deck_thickness]){
 			difference(){
 				cube([motor_mount_width,motor_flange,motor_diameter/2]);
 				translate([-1,motor_flange/2,motor_diameter/2]){
