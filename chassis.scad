@@ -1,14 +1,38 @@
-deck_diameter = 150;
+deck_diameter = 125;
+deck_thickness = 5;
 wheel_opening_length = 70;
-wheel_opening_width = 15;
+wheel_opening_width = 18;
+motor_diameter = 30;
+motor_flange = 45;
+motor_mount_width = 10;
 
 difference(){
 
 	union(){
 		// main deck
-		cylinder(r=deck_diameter / 2,h=5);
+		cylinder(r=deck_diameter / 2,h=deck_thickness);
 
 		// motor mounts
+		translate([-(deck_diameter/4),-motor_flange/2,deck_thickness]){
+			difference(){
+				cube([motor_mount_width,motor_flange,motor_diameter/2]);
+				translate([-1,motor_flange/2,motor_diameter/2]){
+					rotate([0,90,0]){
+						#cylinder(r=motor_diameter/2,h=12);
+					}
+				}
+			}
+		}
+		translate([(deck_diameter/4)-motor_mount_width,-motor_flange/2,deck_thickness]){
+			difference(){
+				cube([motor_mount_width,motor_flange,motor_diameter/2]);
+				translate([-1,motor_flange/2,motor_diameter/2]){
+					rotate([0,90,0]){
+						#cylinder(r=motor_diameter/2,h=12);
+					}
+				}
+			}
+		}
 	}
 
 	// wheel openings
