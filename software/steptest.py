@@ -84,14 +84,14 @@ def m2SetStep(w1,w2,w3,w4):
 
 def forward(steps):
     for i in range(0, steps):
-        m1forward(2.0/1000.0,1)
-        m2forward(2.0/1000.0,1)
+        m1Forward(2.0/1000.0,1)
+        m2Forward(2.0/1000.0,1)
 
 
 while True:
     #delay = raw_input("Delay between steps (ms)?")
     steps = raw_input("How many steps forward?")
-    forward(steps)
+    forward(int(steps))
     #m1Forward(int(delay)/1000.0, int(steps))
     #m2Forward(int(delay)/1000.0, int(steps))
     #steps = raw_input("How many steps backwards?")
