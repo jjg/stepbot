@@ -89,12 +89,12 @@ def forward(steps):
 
 def backward(steps):
     for i in range(0, steps):
-        m1Backward(2.0/1000.0,1)
-        m2Backward(2.0/1000.0,1)
+        m1Backwards(2.0/1000.0,1)
+        m2Backwards(2.0/1000.0,1)
 
 def turn(steps):
     for i in range(0, steps):
-        m1Backward(2.0/1000.0,1)
+        m1Backwards(2.0/1000.0,1)
         m2Forward(2.0/1000.0,1)
 
 while True:
@@ -104,7 +104,7 @@ while True:
     steps = raw_input("How many steps backward?")
     backward(int(steps))
     steps = raw_input("How many steps to turn?")
-    turn(steps)
+    turn(int(steps))
     #m1Forward(int(delay)/1000.0, int(steps))
     #m2Forward(int(delay)/1000.0, int(steps))
     #steps = raw_input("How many steps backwards?")
