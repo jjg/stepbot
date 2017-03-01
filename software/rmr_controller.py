@@ -1,6 +1,6 @@
 # experimental runmyrobot.com client for Stepbot hardware
 
-#import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 import time
 import sys
 import thread
@@ -9,7 +9,7 @@ from socketIO_client import SocketIO, LoggingNamespace
 
 # Begin Stepbot-specific code
 
-#GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BOARD)
 
 # motor 1
 coil_A_1_pin = 24
