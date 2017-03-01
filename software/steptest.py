@@ -82,11 +82,18 @@ def m2SetStep(w1,w2,w3,w4):
     GPIO.output(coil_D_1_pin, w3)
     GPIO.output(coil_D_2_pin, w4)
 
+def forward(steps):
+    for i in range(0, steps):
+        m1forward(2.0/1000.0,1)
+        m2forward(2.0/1000.0,1)
+
+
 while True:
-    delay = raw_input("Delay between steps (ms)?")
+    #delay = raw_input("Delay between steps (ms)?")
     steps = raw_input("How many steps forward?")
-    m1Forward(int(delay)/1000.0, int(steps))
-    m2Forward(int(delay)/1000.0, int(steps))
-    steps = raw_input("How many steps backwards?")
-    m1Backwards(int(delay)/1000.0, int(steps))
-    m2Backwards(int(delay)/1000.0, int(steps))
+    forward(steps)
+    #m1Forward(int(delay)/1000.0, int(steps))
+    #m2Forward(int(delay)/1000.0, int(steps))
+    #steps = raw_input("How many steps backwards?")
+    #m1Backwards(int(delay)/1000.0, int(steps))
+    #m2Backwards(int(delay)/1000.0, int(steps))
