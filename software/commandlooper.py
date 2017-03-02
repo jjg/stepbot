@@ -84,8 +84,8 @@ def m2SetStep(w1,w2,w3,w4):
 
 def forward(steps):
     for i in range(0, steps):
-        m1Forward(2/1000.0,1)
-        m2Forward(2/1000.0,1)
+        m1Forward(2.0/1000.0,1)
+        m2Forward(2.0/1000.0,1)
 
 def backward(steps):
     for i in range(0, steps):
