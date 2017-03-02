@@ -1,15 +1,18 @@
 # experimental runmyrobot.com client for Stepbot hardware
 
-import RPi.GPIO as GPIO
+#import RPi.GPIO as GPIO
 import time
 import sys
+import thread
+import subprocess
 from socketIO_client import SocketIO, LoggingNamespace
 
-GPIO.setmodel(GPIO.BOARD)
+#GPIO.setmode(GPIO.BOARD)
 
 server = "runmyrobot.com"
 port = 8022
 robotID = None
+handlingCommand = False
 
 if len(sys.argv) >= 2:
     robotID = sys.argv[1]
@@ -17,7 +20,7 @@ else:
     robotID = raw_input("Please enter your Robot ID: ")
 
 print "Connecting to %s using SocketIO" % server
-socketID = SocketIO(server, port, LoggingNamespace)
+socketIO = SocketIO(server, port, LoggingNamespace)
 print "Connected to server"
 
 def handle_command(args):
@@ -28,7 +31,7 @@ def handle_command(args):
         print "Already handling a command, ejecting."
         return
 
-    if "command" in args and "robot_id" in args and args["robot_id"] == robotId:
+    if "command" in args and "robot_id" in args and args["robot_id"] == robotID:
         print "Got command for tis robot", args
 
         command = args["command"]
