@@ -24,7 +24,7 @@ socketIO = SocketIO(server, port, LoggingNamespace)
 print "Connected to server"
 
 def handle_command(args):
-    print "Recieved command: ", args
+    #print "Recieved command: ", args
     global handlingCommand
 
     if handlingCommand:
