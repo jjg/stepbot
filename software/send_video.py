@@ -130,7 +130,7 @@ def handleLinux(deviceNumber, videoPort):
     #os.system("v4l2-ctl -c brightness=10 -c contrast=25 -c saturation=40")
     #os.system("v4l2-ctl -c brightness=240 -c contrast=75 -c saturation=60") # Skippy   
     #os.system("v4l2-ctl -c brightness=150 -c contrast=50 -c saturation=80") # Marvin
-    os.system("video4linux2-ctl -c brightness=150 -c contrast=50 -c saturation=80") # Marvin
+    #os.system("v4l2-ctl -c brightness=150 -c contrast=50 -c saturation=80") # Marvin
     #os.system("v4l2-ctl -c brightness=10 -c contrast=70 -c saturation=80") # RedBird
     #os.system("v4l2-ctl -c brightness=40 -c contrast=70 -c saturation=80") # ClawDaddy
     #os.system("v4l2-ctl -c brightness=50 -c contrast=50 -c saturation=80")
@@ -147,14 +147,13 @@ def handleLinux(deviceNumber, videoPort):
     #commandLine = '/usr/local/bin/ffmpeg -s 320x240 -f video4linux2 -i /dev/video%s -f mpeg1video -b 1k -r 20 http://runmyrobot.com:%s/hello/320/240/' % (deviceAnswer, videoPort)
     #commandLine = '/usr/local/bin/ffmpeg -s 640x480 -f video4linux2 -i /dev/video%s -f mpeg1video -b 150k -r 20 http://%s:%s/hello/640/480/' % (deviceAnswer, server, videoPort)
     # For new JSMpeg
-    commandLine = '/usr/bin/avconv -f video4linux2 -framerate 25 -video_size 640x480 -i /dev/video%s -f mpegts -codec:v mpeg1video -s 640x480 -b:v 500k -bf 0 http://%s:%s/hello/640/480/' % (deviceAnswer, server, videoPort) # ClawDaddy
+    #commandLine = '/usr/bin/avconv -f video4linux2 -framerate 25 -video_size 640x480 -i /dev/video%s -f mpegts -codec:v mpeg1video -s 640x480 -b:v 500k -bf 0 http://%s:%s/hello/640/480/' % (deviceAnswer, server, videoPort) # ClawDaddy
     #commandLine = '/usr/local/bin/ffmpeg -s 1280x720 -f video4linux2 -i /dev/video%s -f mpeg1video -b 1k -r 20 http://runmyrobot.com:%s/hello/1280/720/' % (deviceAnswer, videoPort)
-
+    commandLine = '/usr/bin/avconv -f video4linux2 -framerate 15 -video_size 320x240 -i /dev/video%s -f mpegts -codec:v mpeg1video -s 320x240 -b:v 150k -bf 0 http://%s:%s/hello/320/240/' % (deviceAnswer, server, videoPort) # Stepbot 
 
     process = runFfmpeg(commandLine)
 
     return {'process': process, 'device_answer': deviceAnswer}
-
 
 
 def handleWindows(deviceNumber, videoPort):
