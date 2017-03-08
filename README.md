@@ -41,3 +41,7 @@ There's a few more steps to getting Stepbot to work with runmyrobot.com.
 First, if you have a camera, you might need this to get it to show up as a device:
 
     sudo modprobe bcm2835-v4l2
+
+Next, you'll need python socketIO support:
+
+    sudo pip install -U socketIO-client
